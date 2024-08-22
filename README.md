@@ -10,7 +10,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: *YourNameHere*
-* ID: *YourIdHere*
+* Name: Luyen Pham Ngoc Khanh
+* ID:   BA12-093
 * Group ID: *Your Group ID here*
 * Project Name: *Your Project Name here*
