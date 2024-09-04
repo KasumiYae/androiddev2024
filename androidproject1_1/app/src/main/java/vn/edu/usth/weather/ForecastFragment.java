@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +19,7 @@ import android.view.ViewGroup;
  */
 public class ForecastFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+    // TODO: Rename parameter arguments, choose names that match.
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -24,6 +27,11 @@ public class ForecastFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private final String day = " Monday" ;
+    private final int weatherCode = 1001 ;
+
+
 
     public ForecastFragment() {
         // Required empty public constructor
@@ -56,15 +64,39 @@ public class ForecastFragment extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//
+//
+//        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
+//
+//
+//        TextView forecastDayTextView = view.findViewById(R.id.forecast_day_text_view) ;
+//
+//        ImageView forecastImageView = view.findViewById(R.id.forecast_image_view);
+//        final  String dayOfWeek = "Monday" ;
+//        forecastDayTextView.setText(dayOfWeek);
+//
+//        int iconResource = getResources().getIdentifier("weather_" + weatherCode, "drawable", requireContext().getPackageName());
+//        forecastImageView.setImageResource(iconResource);
+//
+//        int color = Color.parseColor( "#20FF0000") ;
+//        view.setBackgroundColor(color) ;
+//        // Inflate the layout for this fragment
+//
+//
+//
+//
+//        return view;
+//    }
 
-
-        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
-        int color = Color.parseColor( "#20FF0000") ;
-        view.setBackgroundColor(color) ;
-        // Inflate the layout for this fragment
-        return view;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+// Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_forecast, container, false);
     }
+
+
+
+
 }
