@@ -3,60 +3,71 @@ package vn.edu.usth.weather;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import com.google.android.material.tabs.TabLayout;
 
 public class WeatherActivity extends AppCompatActivity {
-
-    private static final String TAG = "WeatherActivity";
+    private static final String Tag = "WeatherActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather);
+        setContentView(R.layout.activity_main);
 
-        WeatherFragment weatherFragment = new WeatherFragment();
-        getSupportFragmentManager().findFragmentById(R.id.weatherFragment);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.weatherFragment, weatherFragment);
-        transaction.commit();
+        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager());
 
-        ForecastFragment forecastFragment = new ForecastFragment();
-        getSupportFragmentManager().findFragmentById(R.id.forecastFragment);
-        FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
-        transaction1.add(R.id.forecastFragment, forecastFragment);
-        transaction1.commit();
 
-        Log.i(TAG, "onCreate");
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        pager.setOffscreenPageLimit(3);
+        pager.setAdapter(adapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
+        tabLayout.setupWithViewPager(pager);
+
+        Log.i(Tag, "Create");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG, "Start");
+        Log.i(Tag, "Start");
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG, "Resume");
+        Log.i(Tag, "Resume");
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(TAG, "Pause");
+        Log.i(Tag, "Pause");
+
     }
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "Stop");
+        Log.i(Tag, "Stop");
         super.onStop();
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, "Destroy");
+        Log.i(Tag, "Destroy");
+
     }
+
+
+
+
 }
