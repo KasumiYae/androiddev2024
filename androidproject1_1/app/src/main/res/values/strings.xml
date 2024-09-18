@@ -2,4 +2,50 @@
     <string name="app_name">USTH Weather</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--.........................................................................-->
+
+
+    <string name="action_settings">Cài Đặt</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello">Hello</string>
+
+    <string name="thursday">Thursday</string>
+
+    <string name="first_phase" translatable="false">
+        My miracle, heed my prayer. Grant me thine blessing to fulfill thine holy command. Dress
+        my body in wounds, lacerate the tattered parchment that clothes my flesh. For I am the
+        First Penitent, and you… shall be the last.
+    </string>
+
+    <string name="second_phase" translatable="false">
+        Now let the crimson bindings finish what they once began. My penance is far from over!
+    </string>
+
+
+    <string name="tab_layout_description">Tab Layout</string>
+    <string name="weather_info">20C\nNhiều Mưa</string>
+    <string name="place_name">Hà Nội</string>
+    <string name="Monday">\n Thứ 2</string>
+    <string name="Sunny">Nắng</string>
+    <string name="Tuesday">\n Thứ 3</string>
+    <string name="sunny_n25c_27c">Nắng\n25C-27C</string>
+    <string name="cloudy_n22c_23c">Nhiều Mây\n22C-23C</string>
+    <string name="Wednesday">\n Thứ 4</string>
+    <string name="rainy_n20c_21c">Nhiều Mưa\n20C-21C</string>
+    <string name="Thursday">\n Thứ 5</string>
+    <string name="drizzly_n20c_21c">Mưa Nhẹ\n20C-21C</string>
+    <string name="Friday">\n Thứ 6</string>
+    <string name="windy_n20c_21c">Nhiều Gió\n20C-21C</string>
+    <string name="Saturday">\n Thứ 7</string>
+    <string name="partly_cloudy_n22c_23c">Có Mây\n22C-23C</string>
+    <string name="Sunday">\n Chủ Nhật</string>
+    <string name="sunny_n24c_26c">\Nắngn24C-26C</string>
+    <string name="partly_cloudy_windy_n22c_24c">Có Mây và Nhiều Gió\n22C-24C</string>
+
 </resources>
