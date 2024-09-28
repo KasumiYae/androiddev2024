@@ -48,5 +48,6 @@
     <string name="sunny_n24c_26c">\Nắngn24C-26C</string>
     <string name="partly_cloudy_windy_n22c_24c">Có Mây và Nhiều Gió\n22C-24C</string>
     <string name="paris">paris\n</string>
+    <string name="title_activity_pref_activity.java">PrefActivity.java</string>
 
 </resources>
