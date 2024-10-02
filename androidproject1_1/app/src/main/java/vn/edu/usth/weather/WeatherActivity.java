@@ -1,5 +1,8 @@
 package vn.edu.usth.weather;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -61,7 +64,7 @@ public class WeatherActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.refresh_button) {
-            Toast.makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
+            simulateNetworkRequest();
             return true;
         } else if (id == R.id.setting_button) {
             Intent intent = new Intent(this, PrefActivity.class);
@@ -70,6 +73,33 @@ public class WeatherActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void simulateNetworkRequest() {
+        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+
+        // Sử dụng Handler để mô phỏng yêu cầu mạng
+        new Thread(() -> {
+            try {
+                // Mô phỏng thời gian chờ của yêu cầu mạng
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Sử dụng Handler để cập nhật giao diện sau khi hoàn thành yêu cầu mạng
+            new Handler(Looper.getMainLooper()).post(() -> {
+                Toast.makeText(WeatherActivity.this, "Data refreshed", Toast.LENGTH_SHORT).show();
+            });
+        }).start();
+    }
+
+    final Handler handler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(Message msg) {
+            String content = msg.getData().getString("server_response");
+            Toast.makeText(WeatherActivity.this, content, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private void extractAndPlayMusic() {
         File musicFile = new File(Environment.getExternalStorageDirectory(), "example.mp3");
@@ -104,28 +134,24 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(Tag, "Start");
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(Tag, "Resume");
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.i(Tag, "Pause");
-
     }
 
     @Override
     protected void onStop() {
         Log.i(Tag, "Stop");
         super.onStop();
-
     }
 
     @Override
@@ -137,8 +163,4 @@ public class WeatherActivity extends AppCompatActivity {
         }
         Log.i(Tag, "Destroy");
     }
-
-
-
-
 }
