@@ -10,25 +10,31 @@
     android:id="@+id/forecast_fragment"
     tools:context=".ForecastFragment">
 
+    <!-- ImageView để hiển thị logo USTH -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/logo_desc" />
+
+    <!-- Dự báo thời tiết cho thứ Hai -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginStart="16dp">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Monday" />
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/cloudy"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,25 +42,23 @@
             android:text="@string/partly_cloudy_n22c_23c" />
     </LinearLayout>
 
+    <!-- Dự báo thời tiết cho thứ Ba -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Tuesday"/>
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/rainy"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,25 +66,23 @@
             android:text="@string/cloudy_n22c_23c"/>
     </LinearLayout>
 
+    <!-- Dự báo thời tiết cho thứ Tư -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Wednesday"/>
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/rainy"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,50 +90,47 @@
             android:text="Rain &#10; 22C-23C"/>
     </LinearLayout>
 
+    <!-- Dự báo thời tiết cho thứ Năm -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Thursday"/>
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/sun_and_rain"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/weather_info"/>
     </LinearLayout>
+
+    <!-- Dự báo thời tiết cho thứ Sáu -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Friday"/>
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/cloudy"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,25 +138,23 @@
             android:text="@string/partly_cloudy_n22c_23c"/>
     </LinearLayout>
 
+    <!-- Dự báo thời tiết cho thứ Bảy -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Saturday"/>
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/cloudy"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,112 +162,28 @@
             android:text="@string/partly_cloudy_n22c_23c" />
     </LinearLayout>
 
+    <!-- Dự báo thời tiết cho Chủ Nhật -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="horizontal">
-
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/Sunday"/>
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/thunderstorm"
             app:tint="#FF0000"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/cloudy_n22c_23c"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="16dp">
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/Monday" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/cloudy"
-            app:tint="#FF0000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/partly_cloudy_n22c_23c" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/Tuesday"/>
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/rainy"
-            app:tint="#FF0000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/cloudy_n22c_23c"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/Wednesday"/>
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/rainy"
-            app:tint="#FF0000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Rain &#10; 22C-23C"/>
     </LinearLayout>
 
 </LinearLayout>
-
-
-
-

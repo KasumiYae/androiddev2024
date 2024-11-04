@@ -1,6 +1,8 @@
 package vn.edu.usth.weather;
 
-import android.graphics.Color;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,8 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import java.io.InputStream; // Import InputStream
+import java.net.URL; // Import URL
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,28 +22,17 @@ import android.widget.TextView;
  */
 public class ForecastFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageView logoImageView;
 
     public ForecastFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ForecastFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ForecastFragment newInstance(String param1, String param2) {
         ForecastFragment fragment = new ForecastFragment();
         Bundle args = new Bundle();
@@ -62,26 +54,49 @@ public class ForecastFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        View view = new View(getContext());
-//        view.setBackgroundColor(Color.parseColor("#20FF0000"));
-//        // Inflate the layout for this fragment
-//
-//
-//        TextView day = new TextView(getContext());
-//        day.setText("Thursday");
-//        ImageView icon = new ImageView(getContext());
-//        icon.setImageResource(R.drawable.sunny_day);
-//
-//        LinearLayout linearLayout = new LinearLayout(getContext());
-//        linearLayout.setOrientation(LinearLayout.VERTICAL);
-//        linearLayout.addView(day);
-//        linearLayout.addView(icon);
-//        linearLayout.addView(view);
-//
-//        return linearLayout;
-        return inflater.inflate(R.layout.fragment_forecast, container, false);
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
+        logoImageView = view.findViewById(R.id.logoImageView); // Đảm bảo ImageView đã có trong layout
 
+        // Thực hiện tải logo
+        new LoadLogoTask().execute("http://ict.usth.edu.vn/wp-content/uploads/usth/usthlogo.png");
+
+        return view;
     }
 
 
+
+    protected void onPostExecute(Bitmap result) {
+        if (result != null) {
+            logoImageView.setImageBitmap(result); // Hiển thị logo lên ImageView
+        } else {
+            // Nếu không tải được logo, hiển thị hình ảnh mặc định
+            logoImageView.setImageResource(R.drawable.usth);
+        }
+    }
+
+    private class LoadLogoTask extends AsyncTask<String, Void, Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            String urlString = urls[0];
+            Bitmap logo = null;
+
+            try {
+                InputStream in = new URL(urlString).openStream(); // Tải logo từ URL
+                logo = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return logo;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                logoImageView.setImageBitmap(result); // Hiển thị logo lên ImageView
+            } else {
+                // Nếu không tải được logo, có thể đặt một hình ảnh mặc định hoặc thông báo lỗi
+                // logoImageView.setImageResource(R.drawable.default_logo);
+            }
+        }
+    }
 }
