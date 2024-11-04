@@ -1,5 +1,6 @@
 package vn.edu.usth.weather;
 
+import android.os.AsyncTask; // Thêm import này
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -64,7 +65,8 @@ public class WeatherActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.refresh_button) {
-            simulateNetworkRequest();
+            // Thay thế simulateNetworkRequest bằng AsyncTask
+            new RefreshWeatherTask().execute();
             return true;
         } else if (id == R.id.setting_button) {
             Intent intent = new Intent(this, PrefActivity.class);
@@ -74,23 +76,30 @@ public class WeatherActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void simulateNetworkRequest() {
-        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
+    // Thêm AsyncTask để mô phỏng yêu cầu mạng
+    private class RefreshWeatherTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Toast.makeText(WeatherActivity.this, "Refreshing...", Toast.LENGTH_SHORT).show();
+        }
 
-        // Sử dụng Handler để mô phỏng yêu cầu mạng
-        new Thread(() -> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            // Mô phỏng yêu cầu mạng
             try {
-                // Mô phỏng thời gian chờ của yêu cầu mạng
-                Thread.sleep(2000);
+                Thread.sleep(2000); // Thực hiện sleep để mô phỏng thời gian lấy dữ liệu
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return "Weather data refreshed"; // Chuỗi trả về
+        }
 
-            // Sử dụng Handler để cập nhật giao diện sau khi hoàn thành yêu cầu mạng
-            new Handler(Looper.getMainLooper()).post(() -> {
-                Toast.makeText(WeatherActivity.this, "Data refreshed", Toast.LENGTH_SHORT).show();
-            });
-        }).start();
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Toast.makeText(WeatherActivity.this, result, Toast.LENGTH_SHORT).show(); // Hiển thị kết quả
+        }
     }
 
     final Handler handler = new Handler(Looper.getMainLooper()) {
